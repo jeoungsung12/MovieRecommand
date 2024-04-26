@@ -21,6 +21,7 @@
 		E461BD852BDB9106008CFD7D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E461BD842BDB9106008CFD7D /* RxSwift */; };
 		E461BD882BDB9117008CFD7D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E461BD872BDB9117008CFD7D /* Alamofire */; };
 		E461BD8B2BDB98BA008CFD7D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E461BD8A2BDB98BA008CFD7D /* Kingfisher */; };
+		E461BD8D2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD8C2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E461BD722BDB8BE3008CFD7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E461BD782BDB8F8D008CFD7D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E461BD7A2BDB9058008CFD7D /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		E461BD8C2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCaroselCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				E461BD682BDB8BE2008CFD7D /* ViewController.swift */,
 				E461BD782BDB8F8D008CFD7D /* Item.swift */,
 				E461BD7A2BDB9058008CFD7D /* BannerCollectionViewCell.swift */,
+				E461BD8C2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift */,
 				E461BD6A2BDB8BE2008CFD7D /* Main.storyboard */,
 				E461BD6D2BDB8BE3008CFD7D /* Assets.xcassets */,
 				E461BD6F2BDB8BE3008CFD7D /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 				E461BD792BDB8F8D008CFD7D /* Item.swift in Sources */,
 				E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */,
 				E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */,
+				E461BD8D2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift in Sources */,
 				E461BD7B2BDB9058008CFD7D /* BannerCollectionViewCell.swift in Sources */,
 				E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */,
 			);
@@ -328,6 +332,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,6 +360,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
