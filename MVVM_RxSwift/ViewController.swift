@@ -40,7 +40,7 @@ extension ViewController {
             case 1:
                 return self.createNormalCarouselSection()
 //            case 2:
-//
+                
             default:
                 return self.createBannerSection()
             }
