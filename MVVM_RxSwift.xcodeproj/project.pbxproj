@@ -29,6 +29,8 @@
 		E48650D92BDE6148001A7CC8 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E48650D82BDE6148001A7CC8 /* RxAlamofire */; };
 		E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650DB2BDE6212001A7CC8 /* Const.swift */; };
 		E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650DE2BDE62AF001A7CC8 /* TV.swift */; };
+		E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E02BDE65D7001A7CC8 /* Movie.swift */; };
+		E48650E32BDE66AC001A7CC8 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E22BDE66AC001A7CC8 /* MovieResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E48650D02BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_RxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E48650DB2BDE6212001A7CC8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		E48650DE2BDE62AF001A7CC8 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		E48650E02BDE65D7001A7CC8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E48650E22BDE66AC001A7CC8 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				E48650DE2BDE62AF001A7CC8 /* TV.swift */,
+				E48650E02BDE65D7001A7CC8 /* Movie.swift */,
+				E48650E22BDE66AC001A7CC8 /* MovieResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -323,9 +329,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461BD792BDB8F8D008CFD7D /* Item.swift in Sources */,
+				E48650E32BDE66AC001A7CC8 /* MovieResult.swift in Sources */,
 				E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */,
 				E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */,
 				E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */,
+				E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */,
 				E461BD8F2BDCFA41008CFD7D /* ListCarouselCollectionViewCell.swift in Sources */,
 				E461BD8D2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift in Sources */,
 				E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */,
