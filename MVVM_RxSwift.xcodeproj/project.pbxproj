@@ -27,6 +27,8 @@
 		E48650CF2BDE4A6E001A7CC8 /* MVVM_RxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650CE2BDE4A6E001A7CC8 /* MVVM_RxSwiftUITests.swift */; };
 		E48650D12BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650D02BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift */; };
 		E48650D92BDE6148001A7CC8 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E48650D82BDE6148001A7CC8 /* RxAlamofire */; };
+		E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650DB2BDE6212001A7CC8 /* Const.swift */; };
+		E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650DE2BDE62AF001A7CC8 /* TV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		E48650CC2BDE4A6D001A7CC8 /* MVVM_RxSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVM_RxSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48650CE2BDE4A6E001A7CC8 /* MVVM_RxSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_RxSwiftUITests.swift; sourceTree = "<group>"; };
 		E48650D02BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_RxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E48650DB2BDE6212001A7CC8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		E48650DE2BDE62AF001A7CC8 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		E461BD632BDB8BE2008CFD7D /* MVVM_RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E48650DA2BDE6204001A7CC8 /* Network */,
 				E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */,
 				E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */,
 				E461BD682BDB8BE2008CFD7D /* ViewController.swift */,
@@ -151,6 +156,23 @@
 				E48650D02BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift */,
 			);
 			path = MVVM_RxSwiftUITests;
+			sourceTree = "<group>";
+		};
+		E48650DA2BDE6204001A7CC8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E48650DD2BDE62A1001A7CC8 /* Entities */,
+				E48650DB2BDE6212001A7CC8 /* Const.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E48650DD2BDE62A1001A7CC8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E48650DE2BDE62AF001A7CC8 /* TV.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,9 +324,11 @@
 			files = (
 				E461BD792BDB8F8D008CFD7D /* Item.swift in Sources */,
 				E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */,
+				E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */,
 				E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */,
 				E461BD8F2BDCFA41008CFD7D /* ListCarouselCollectionViewCell.swift in Sources */,
 				E461BD8D2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift in Sources */,
+				E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */,
 				E461BD7B2BDB9058008CFD7D /* BannerCollectionViewCell.swift in Sources */,
 				E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */,
 			);
