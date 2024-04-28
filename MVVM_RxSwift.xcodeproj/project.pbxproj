@@ -31,6 +31,10 @@
 		E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650DE2BDE62AF001A7CC8 /* TV.swift */; };
 		E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E02BDE65D7001A7CC8 /* Movie.swift */; };
 		E48650E32BDE66AC001A7CC8 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E22BDE66AC001A7CC8 /* MovieResult.swift */; };
+		E48650E52BDE6BBE001A7CC8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E42BDE6BBE001A7CC8 /* Network.swift */; };
+		E48650E72BDE6D5F001A7CC8 /* TVNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E62BDE6D5F001A7CC8 /* TVNetwork.swift */; };
+		E48650E92BDE6DE2001A7CC8 /* MovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650E82BDE6DE2001A7CC8 /* MovieNetwork.swift */; };
+		E48650EB2BDE6E82001A7CC8 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650EA2BDE6E82001A7CC8 /* NetworkProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		E48650DE2BDE62AF001A7CC8 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		E48650E02BDE65D7001A7CC8 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E48650E22BDE66AC001A7CC8 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
+		E48650E42BDE6BBE001A7CC8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E48650E62BDE6D5F001A7CC8 /* TVNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVNetwork.swift; sourceTree = "<group>"; };
+		E48650E82BDE6DE2001A7CC8 /* MovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetwork.swift; sourceTree = "<group>"; };
+		E48650EA2BDE6E82001A7CC8 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +137,10 @@
 		E461BD632BDB8BE2008CFD7D /* MVVM_RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				E48650DA2BDE6204001A7CC8 /* Network */,
 				E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */,
 				E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */,
 				E461BD682BDB8BE2008CFD7D /* ViewController.swift */,
+				E48650DA2BDE6204001A7CC8 /* Network */,
 				E461BD782BDB8F8D008CFD7D /* Item.swift */,
 				E461BD7A2BDB9058008CFD7D /* BannerCollectionViewCell.swift */,
 				E461BD8C2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift */,
@@ -165,8 +173,12 @@
 		E48650DA2BDE6204001A7CC8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E48650DD2BDE62A1001A7CC8 /* Entities */,
 				E48650DB2BDE6212001A7CC8 /* Const.swift */,
+				E48650DD2BDE62A1001A7CC8 /* Entities */,
+				E48650E42BDE6BBE001A7CC8 /* Network.swift */,
+				E48650E62BDE6D5F001A7CC8 /* TVNetwork.swift */,
+				E48650E82BDE6DE2001A7CC8 /* MovieNetwork.swift */,
+				E48650EA2BDE6E82001A7CC8 /* NetworkProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -330,15 +342,19 @@
 			files = (
 				E461BD792BDB8F8D008CFD7D /* Item.swift in Sources */,
 				E48650E32BDE66AC001A7CC8 /* MovieResult.swift in Sources */,
+				E48650E52BDE6BBE001A7CC8 /* Network.swift in Sources */,
 				E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */,
+				E48650E72BDE6D5F001A7CC8 /* TVNetwork.swift in Sources */,
 				E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */,
 				E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */,
+				E48650E92BDE6DE2001A7CC8 /* MovieNetwork.swift in Sources */,
 				E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */,
 				E461BD8F2BDCFA41008CFD7D /* ListCarouselCollectionViewCell.swift in Sources */,
 				E461BD8D2BDBA6F2008CFD7D /* NormalCaroselCollectionViewCell.swift in Sources */,
 				E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */,
 				E461BD7B2BDB9058008CFD7D /* BannerCollectionViewCell.swift in Sources */,
 				E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */,
+				E48650EB2BDE6E82001A7CC8 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
