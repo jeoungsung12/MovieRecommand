@@ -26,6 +26,7 @@
 		E48650C22BDE4A55001A7CC8 /* MVVM_RxSwiftTests_UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650C12BDE4A55001A7CC8 /* MVVM_RxSwiftTests_UnitTest.swift */; };
 		E48650CF2BDE4A6E001A7CC8 /* MVVM_RxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650CE2BDE4A6E001A7CC8 /* MVVM_RxSwiftUITests.swift */; };
 		E48650D12BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48650D02BDE4A6E001A7CC8 /* MVVM_RxSwiftUITestsLaunchTests.swift */; };
+		E48650D92BDE6148001A7CC8 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E48650D82BDE6148001A7CC8 /* RxAlamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 				E461BD832BDB9106008CFD7D /* RxRelay in Frameworks */,
 				E461BD812BDB9106008CFD7D /* RxCocoa in Frameworks */,
 				E461BD852BDB9106008CFD7D /* RxSwift in Frameworks */,
+				E48650D92BDE6148001A7CC8 /* RxAlamofire in Frameworks */,
 				E461BD7E2BDB90E5008CFD7D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +176,7 @@
 				E461BD842BDB9106008CFD7D /* RxSwift */,
 				E461BD872BDB9117008CFD7D /* Alamofire */,
 				E461BD8A2BDB98BA008CFD7D /* Kingfisher */,
+				E48650D82BDE6148001A7CC8 /* RxAlamofire */,
 			);
 			productName = MVVM_RxSwift;
 			productReference = E461BD612BDB8BE2008CFD7D /* MVVM_RxSwift.app */;
@@ -252,6 +255,7 @@
 				E461BD7F2BDB9106008CFD7D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				E461BD862BDB9117008CFD7D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E461BD892BDB98BA008CFD7D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E48650D72BDE6148001A7CC8 /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 			);
 			productRefGroup = E461BD622BDB8BE2008CFD7D /* Products */;
 			projectDirPath = "";
@@ -680,6 +684,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		E48650D72BDE6148001A7CC8 /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +724,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E461BD892BDB98BA008CFD7D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E48650D82BDE6148001A7CC8 /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E48650D72BDE6148001A7CC8 /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
