@@ -16,7 +16,7 @@ class ListCarouselCollectionViewCell : UICollectionViewCell {
     private let subTitleLabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setLayout()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,7 +30,7 @@ extension ListCarouselCollectionViewCell {
         self.addSubview(subTitleLabel)
         
         mainImage.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
+            make.leading.top.bottom.equalToSuperview()
             make.width.equalTo(60)
         }
         titleLabel.snp.makeConstraints { make in
@@ -39,12 +39,12 @@ extension ListCarouselCollectionViewCell {
         }
         subTitleLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.leading.equalTo(titleLabel.snp.trailing).offset(8)
+            make.leading.equalTo(mainImage.snp.trailing).offset(8)
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
         }
     }
     public func config(imageUrl : String, title: String, subTitle: String?) {
-        if let url = URL(string: imageUrl){
+        if let url = URL(string: imageUrl) {
             self.mainImage.kf.setImage(with: url)
         }
         self.titleLabel.text = title

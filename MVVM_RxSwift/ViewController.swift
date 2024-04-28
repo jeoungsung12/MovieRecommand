@@ -28,6 +28,7 @@ extension ViewController {
     private func setCollection() {
         collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.id)
         collectionView.register(NormalCaroselCollectionViewCell.self, forCellWithReuseIdentifier: NormalCaroselCollectionViewCell.id)
+        collectionView.register(ListCarouselCollectionViewCell.self, forCellWithReuseIdentifier: ListCarouselCollectionViewCell.id)
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
     }
     private func createLayout() -> UICollectionViewCompositionalLayout {
@@ -39,8 +40,8 @@ extension ViewController {
                 return self.createBannerSection()
             case 1:
                 return self.createNormalCarouselSection()
-//            case 2:
-                
+            case 2:
+                return self.createListCarouselSection()
             default:
                 return self.createBannerSection()
             }
@@ -65,12 +66,26 @@ extension ViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
         //group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(180))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(120))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         //section
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
         section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+    private func createListCarouselSection() -> NSCollectionLayoutSection {
+        //item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 0)
+        //group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(250))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        section.orthogonalScrollingBehavior = .continuous
         return section
     }
     //MARK: - setCollectionData
@@ -87,10 +102,13 @@ extension ViewController {
                     return UICollectionViewCell()}
                 cell.config(imageUrl: item.imageUrl, title: item.title, subTitle: item.subTitle ?? "")
                 return cell
-//            case .listCarousel(let item):
-//                return cell
-            default:
-                return UICollectionViewCell()
+            case .listCarousel(let item):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCarouselCollectionViewCell.id, for: indexPath) as? ListCarouselCollectionViewCell else {
+                    return UICollectionViewCell()}
+                cell.config(imageUrl: item.imageUrl, title: item.title, subTitle: item.subTitle)
+                return cell
+//            default:
+//                return UICollectionViewCell()
             }
         })
     }
@@ -114,6 +132,18 @@ extension ViewController {
             Item.normalCarousel(HomeItem(title: "BHC", subTitle: "뿌링클 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg"))
         ]
         snapshot.appendItems(normalItems, toSection: Section(id: "NormalCarosel"))
+        
+        snapshot.appendSections([Section(id: "ListCarosel")])
+        let listItems = [
+            Item.listCarousel(HomeItem(title: "교촌치킨", subTitle: "간장 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg")),
+            Item.listCarousel(HomeItem(title: "굽네치킨", subTitle: "오븐 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg")),
+            Item.listCarousel(HomeItem(title: "푸라닭 치킨", subTitle: "차이니즈 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg")),
+            Item.listCarousel(HomeItem(title: "후라이드 참 잘하는집", subTitle: "후라이드 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg")),
+            Item.listCarousel(HomeItem(title: "페리카나", subTitle: "양념 후라이드 반반 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg")),
+            Item.listCarousel(HomeItem(title: "BHC", subTitle: "뿌링클 치킨", imageUrl: "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg"))
+        ]
+        snapshot.appendItems(listItems, toSection: Section(id: "ListCarosel"))
+        
         dataSource?.apply(snapshot)
     }
 }
