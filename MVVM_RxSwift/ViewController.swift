@@ -10,6 +10,8 @@ import SnapKit
 
 class ViewController: UIViewController {
     //MARK: - UI Components
+    //버튼 뷰
+    let buttonView = ButtonView()
     //컬렉션 뷰
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     private var dataSource : UICollectionViewDiffableDataSource<Section,Item>?
@@ -150,9 +152,16 @@ extension ViewController {
 //MARK: - UI Layout
 extension ViewController {
     private func setLayout() {
+        self.view.backgroundColor = .white
+        self.view.addSubview(buttonView)
         self.view.addSubview(collectionView)
+        buttonView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(80)
+        }
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(buttonView.snp.bottom)
         }
     }
 }

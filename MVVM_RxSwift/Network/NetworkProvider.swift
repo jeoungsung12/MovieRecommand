@@ -7,7 +7,6 @@
 
 import Foundation
 //어떤 네트워크든지 생성할 수 있는 클래스
-
 final class NetworkProvider {
     private let endpoint : String
     init(endpoint: String) {
