@@ -7,17 +7,21 @@
 
 import UIKit
 import SnapKit
-
+import RxSwift
 class ViewController: UIViewController {
     //MARK: - UI Components
-    //버튼 뷰
-    let buttonView = ButtonView()
-    //컬렉션 뷰
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    private let viewModel = ViewModel()
+    private let buttonView = ButtonView()
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    //Subject - 이벤트를 발생시키면서 Observarble 형태도 되는거
+    private let tvTrigger = PublishSubject<Void>()
+    private let moTrigger = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
     private var dataSource : UICollectionViewDiffableDataSource<Section,Item>?
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        setBinding()
         setCollection()
         setDataSource()
         setSnapShot()
@@ -163,5 +167,23 @@ extension ViewController {
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(buttonView.snp.bottom)
         }
+    }
+}
+//MARK: - Bind
+extension ViewController {
+    private func setBinding() {
+        let input = ViewModel.Input(tvTrigger: tvTrigger.asObserver(), moTrigger: moTrigger.asObserver())
+        let output = viewModel.transform(input: input)
+        output.tvList.bind { tvList in
+            print(tvList)
+        }
+        .disposed(by: disposeBag)
+    }
+    private func bindView() {
+        buttonView.tvButton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
+            self.tvTrigger.onNext(())
+        }
+        .disposed(by: disposeBag)
     }
 }
