@@ -7,8 +7,8 @@
 
 import Foundation
 struct TVListModel : Decodable {
-    let page : Int
-    let results : [TV]
+    let page : Int?
+    let results : [TV]?
 }
 
 struct TV : Decodable {

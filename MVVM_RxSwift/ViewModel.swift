@@ -30,7 +30,7 @@ class ViewModel {
         //trigger -> 네트워크 -> Observable<T> -> VC 전달 -> VC에서 구독
         //tvTrigger -> Observable<Void> -> Observable<[TV]>
         let tvList = input.tvTrigger.flatMapLatest { [unowned self] _ -> Observable<[TV]> in
-            return self.tvNetwork.getTopRatedList().map { $0.results }
+            return self.tvNetwork.getTopRatedList().map { $0.results ?? [] }
         }
         //Observable 1,2,3 합쳐서 하나의 Observable로 바꾸고 싶다면? Observable.combineLatest
         let movieResult = input.moTrigger.flatMapLatest { [unowned self] _ -> Observable<MovieResult> in

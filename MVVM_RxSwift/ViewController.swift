@@ -187,12 +187,12 @@ extension ViewController {
     private func setBindView() {
         buttonView.tvButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-//            self.tvTrigger.onNext(())
+            self.tvTrigger.onNext(())
         }
         .disposed(by: disposeBag)
         buttonView.movieButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-//            self.moTrigger.onNext(())
+            self.moTrigger.onNext(())
         }
         .disposed(by: disposeBag)
     }

@@ -10,7 +10,7 @@ import Foundation
 final class NetworkProvider {
     private let endpoint : String
     init(endpoint: String) {
-        self.endpoint = "https://api/themoviedb.org/3"
+        self.endpoint = "https://api.themoviedb.org/3"
     }
     func makeTVNetwork() -> TVNetwork {
         let network = Network<TVListModel>(endpoint)

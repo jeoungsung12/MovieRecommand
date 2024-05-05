@@ -23,7 +23,6 @@ class Network<T:Decodable> {
             .observe(on: queue)
             .debug()
             .map { data -> T in
-                print("결과 \(data.debugDescription)")
                 return try JSONDecoder().decode(T.self, from: data)
             }
     }
