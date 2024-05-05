@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     private let viewModel = ViewModel()
     private let buttonView = ButtonView()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
-    //Subject - 이벤트를 발생시키면서 Observarble 형태도 되는거
+    //Subject - 이벤트를 발생시키면서 Observarble 형태도 되는 것.
     private let tvTrigger = PublishSubject<Void>()
     private let moTrigger = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         setCollection()
         setDataSource()
         setSnapShot()
+        setBindView()
     }
 }
 //MARK: - UI Navigation
@@ -178,16 +179,20 @@ extension ViewController {
             print(tvList)
         }
         .disposed(by: disposeBag)
+        output.moList.bind { moList in
+            print(moList)
+        }
+        .disposed(by: disposeBag)
     }
-    private func bindView() {
+    private func setBindView() {
         buttonView.tvButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-            self.tvTrigger.onNext(())
+//            self.tvTrigger.onNext(())
         }
         .disposed(by: disposeBag)
         buttonView.movieButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-            self.moTrigger.onNext(())
+//            self.moTrigger.onNext(())
         }
         .disposed(by: disposeBag)
     }

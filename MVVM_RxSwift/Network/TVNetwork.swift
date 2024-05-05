@@ -13,7 +13,7 @@ final class TVNetwork {
     init(network: Network<TVListModel>) {
         self.network = network
     }
-    func getToRatedList() -> Observable<TVListModel> {
+    func getTopRatedList() -> Observable<TVListModel> {
         return network.getItemList(path: "/movie/top_rated")
     }
 }
