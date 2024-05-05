@@ -17,9 +17,9 @@ class ViewModel {
     }
     struct Output {
         let tvList: Observable<[TV]>
-//        let moList : Observable<[MovieResult]>
+        let moList : Observable<[MovieResult]>
     }
     func transform(input: Input) -> Output {
-        return Output(tvList: Observable<[TV]>.just([]))
+        return Output(tvList: Observable<[TV]>.just([]), moList: Observable<[MovieResult]>.just([]))
     }
 }

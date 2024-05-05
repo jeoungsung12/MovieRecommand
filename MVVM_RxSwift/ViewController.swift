@@ -185,5 +185,10 @@ extension ViewController {
             self.tvTrigger.onNext(())
         }
         .disposed(by: disposeBag)
+        buttonView.movieButton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
+            self.moTrigger.onNext(())
+        }
+        .disposed(by: disposeBag)
     }
 }
