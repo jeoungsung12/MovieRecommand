@@ -11,14 +11,14 @@ import SnapKit
 
 class ButtonView : UIView {
     //MARK: - UI Components
-    private let tvButton : UIButton = {
+    public let tvButton : UIButton = {
         let btn = UIButton()
         btn.setTitle("TV", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.configuration = UIButton.Configuration.bordered()
         return btn
     }()
-    private let movieButton : UIButton = {
+    public let movieButton : UIButton = {
         let btn = UIButton()
         btn.setTitle("Movie", for: .normal)
         btn.setTitleColor(.black, for: .normal)
