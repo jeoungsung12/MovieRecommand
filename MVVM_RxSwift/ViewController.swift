@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import RxSwift
+
+
 class ViewController: UIViewController {
     //MARK: - UI Components
     private let viewModel = ViewModel()
@@ -20,12 +22,15 @@ class ViewController: UIViewController {
     private var dataSource : UICollectionViewDiffableDataSource<Section,Item>?
     override func viewDidLoad() {
         super.viewDidLoad()
+        //초기 세팅
         setLayout()
         setBinding()
         setCollection()
         setDataSource()
         setSnapShot()
         setBindView()
+        //초기 로딩
+        self.tvTrigger.onNext(())
     }
 }
 //MARK: - UI Navigation
