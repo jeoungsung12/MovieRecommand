@@ -16,6 +16,8 @@ class NormalCollectionViewCell : UICollectionViewCell {
         let view = UIImageView()
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 8
+        view.backgroundColor = .lightGray
+        view.contentMode = .scaleAspectFill
         return view
     }()
     private let titleLabel : UILabel = {
@@ -72,7 +74,7 @@ extension NormalCollectionViewCell {
 //MARK: - UI Config
 extension NormalCollectionViewCell {
     public func config(imageUrl : String, titleLabel : String, reviewLabel : String, descLabel : String) {
-        if let url = URL(string: "https://api.themoviedb.org/3\(imageUrl)") {
+        if let url = URL(string: "https://image.tmdb.org/t/p/original\(imageUrl)") {
             self.image.kf.setImage(with: url)
         }
         self.titleLabel.text = titleLabel
