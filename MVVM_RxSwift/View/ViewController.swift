@@ -12,10 +12,15 @@ import RxSwift
 //레이아웃
 enum Section : Hashable {
     case double
+    case banner
+    case horizotional(String)
+    case vertical(String)
 }
 //셀
 enum Item : Hashable {
-    case normal(TV)
+    case normal(Content)
+    case bigImage(Movie)
+    case list(Movie)
 }
 
 class ViewController: UIViewController {
@@ -76,7 +81,7 @@ extension ViewController {
         let output = viewModel.transform(input: input)
         output.tvList.bind {[weak self] tvList in
             var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
-            let items = tvList.map { return Item.normal($0) }
+            let items = tvList.map { return Item.normal(Content(tv: $0)) }
             let section = Section.double
             snapshot.appendSections([section])
             snapshot.appendItems(items, toSection: section)
@@ -130,9 +135,17 @@ extension ViewController {
     private func setDatasource() {
         dataSource = UICollectionViewDiffableDataSource<Section,Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .normal(let tvData):
+            case .normal(let contentData):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
-                cell?.config(imageUrl: tvData.poster_path ?? "", titleLabel: tvData.title ?? "", reviewLabel: "\(tvData.vote_average ?? 0.0)", descLabel: tvData.overview ?? "")
+                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
+                return cell
+            case .bigImage(let contentData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
+                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
+                return cell
+            case .list(let contentData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
+                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
                 return cell
             }
         })

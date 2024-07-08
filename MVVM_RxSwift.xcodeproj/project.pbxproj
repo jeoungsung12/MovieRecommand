@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E45F19DD2C3BD4AF00AE79DC /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F19DC2C3BD4AF00AE79DC /* Content.swift */; };
 		E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */; };
 		E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */; };
 		E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD682BDB8BE2008CFD7D /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E45F19DC2C3BD4AF00AE79DC /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		E461BD612BDB8BE2008CFD7D /* MVVM_RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				E48650DE2BDE62AF001A7CC8 /* TV.swift */,
 				E48650E02BDE65D7001A7CC8 /* Movie.swift */,
 				E48650E22BDE66AC001A7CC8 /* MovieResult.swift */,
+				E45F19DC2C3BD4AF00AE79DC /* Content.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				E4EC74482BE4F75E00D1C9FD /* ViewModel.swift in Sources */,
 				E4EC744D2BE8B37B00D1C9FD /* NormalCollectionViewCell.swift in Sources */,
 				E48650DF2BDE62AF001A7CC8 /* TV.swift in Sources */,
+				E45F19DD2C3BD4AF00AE79DC /* Content.swift in Sources */,
 				E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */,
 				E48650E92BDE6DE2001A7CC8 /* MovieNetwork.swift in Sources */,
 				E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */,

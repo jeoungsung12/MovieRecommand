@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct MovieListModel : Decodable {
+struct MovieListModel : Decodable{
     let page : Int
     let results : [Movie]
 }
 
-struct Movie : Decodable {
+struct Movie : Decodable, Hashable {
     let title : String
     let overview : String
     let posterURL : String
-    let vote : String
+    let vote : Double
     let releaseDate : String
     
     private enum CodingKeys : String, CodingKey {
@@ -35,7 +35,7 @@ struct Movie : Decodable {
         posterURL = "https://image.tmdb.org/t/p/w500\(path)"
         let voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         let voteCount = try container.decode(Int.self, forKey: .voteCount)
-        vote = "\(voteAverage) (\(voteCount))"
+        vote = voteAverage
         releaseDate = try container.decode(String.self, forKey: .releaseDate)
     }
 }
