@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E45F19DD2C3BD4AF00AE79DC /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F19DC2C3BD4AF00AE79DC /* Content.swift */; };
+		E45F19DF2C3BD81B00AE79DC /* BigImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F19DE2C3BD81B00AE79DC /* BigImageCollectionViewCell.swift */; };
 		E461BD652BDB8BE2008CFD7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */; };
 		E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */; };
 		E461BD692BDB8BE2008CFD7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD682BDB8BE2008CFD7D /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		E45F19DC2C3BD4AF00AE79DC /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		E45F19DE2C3BD81B00AE79DC /* BigImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E461BD612BDB8BE2008CFD7D /* MVVM_RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461BD642BDB8BE2008CFD7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E461BD662BDB8BE2008CFD7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E4EC744C2BE8B37B00D1C9FD /* NormalCollectionViewCell.swift */,
+				E45F19DE2C3BD81B00AE79DC /* BigImageCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E48650E12BDE65D7001A7CC8 /* Movie.swift in Sources */,
 				E48650DC2BDE6212001A7CC8 /* Const.swift in Sources */,
 				E461BD672BDB8BE2008CFD7D /* SceneDelegate.swift in Sources */,
+				E45F19DF2C3BD81B00AE79DC /* BigImageCollectionViewCell.swift in Sources */,
 				E48650EB2BDE6E82001A7CC8 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
