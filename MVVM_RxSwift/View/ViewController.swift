@@ -41,18 +41,22 @@ class ViewController: UIViewController {
         setBinding()
         setBindView()
         setDatasource()
+        setNavigation()
         //초기 로딩
         self.tvTrigger.onNext(())
     }
 }
 //MARK: - UI Navigation
-
+extension ViewController {
+    private func setNavigation() {
+        self.view.backgroundColor = .white
+    }
+}
 //MARK: - UI Collection
 
 //MARK: - UI Layout
 extension ViewController {
     private func setLayout() {
-        self.view.backgroundColor = .white
         self.view.addSubview(buttonView)
         self.view.addSubview(collectionView)
         buttonView.snp.makeConstraints { make in
@@ -72,7 +76,7 @@ extension ViewController {
         let output = viewModel.transform(input: input)
         output.tvList.bind {[weak self] tvList in
             var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
-            let items = tvList.map { return Item.normal($0)}
+            let items = tvList.map { return Item.normal($0) }
             let section = Section.double
             snapshot.appendSections([section])
             snapshot.appendItems(items, toSection: section)
