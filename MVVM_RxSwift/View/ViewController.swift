@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         view.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: NormalCollectionViewCell.id)
         view.register(BigImageCollectionViewCell.self, forCellWithReuseIdentifier: BigImageCollectionViewCell.id)
         view.register(ListCollectionViewCell.self, forCellWithReuseIdentifier: ListCollectionViewCell.id)
+        view.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader ,withReuseIdentifier: HeaderView.id)
         return view
     }()
     private var dataSource : UICollectionViewDiffableDataSource<Section,Item>?
