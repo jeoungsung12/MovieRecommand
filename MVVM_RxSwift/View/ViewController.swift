@@ -92,7 +92,22 @@ extension ViewController {
         }
         .disposed(by: disposeBag)
         output.moList.bind { moList in
-            print(moList)
+            var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
+            let bigImageList = moList.nowPlaying.results.map { movie in
+                return Item.bigImage(movie)
+            }
+            let bannerSection = Section.banner
+            snapshot.appendSections([bannerSection])
+            snapshot.appendItems(bigImageList, toSection: bannerSection)
+            
+            let horizontalSection = Section.horizotional("Popular Movies")
+            let normalList = moList.popular.results.map { movie in
+                return Item.normal(Content(movie: movie))
+            }
+            snapshot.appendSections([horizontalSection])
+            snapshot.appendItems(normalList, toSection: horizontalSection)
+            
+            self.dataSource?.apply(snapshot)
         }
         .disposed(by: disposeBag)
     }
@@ -115,14 +130,46 @@ extension ViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 14
         return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
-            switch sectionIndex {
-            case 0:
-                return self?.createDoubleSection()
+            let section = self?.dataSource?.sectionIdentifier(for: sectionIndex)
+            
+            switch section {
+            case .banner:
+                return self?.createBannerSection()
+            case .horizotional:
+                return self?.createHorizontalSection()
             default:
                 return self?.createDoubleSection()
             }
         }, configuration: config)
     }
+    //MARK: - Horizontal Section
+    private func createHorizontalSection() -> NSCollectionLayoutSection {
+        //item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        //group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(320))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    //MARK: - Banner Section
+    private func createBannerSection() -> NSCollectionLayoutSection {
+        //item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        //group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(640))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+    //MARK: - Main Section
     private func createDoubleSection() -> NSCollectionLayoutSection {
         //item
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
@@ -140,15 +187,15 @@ extension ViewController {
             switch itemIdentifier {
             case .normal(let contentData):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
-                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
+                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "⭐️ \(contentData.vote)", descLabel: contentData.overview )
+                return cell ?? nil
+            case .bigImage(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigImageCollectionViewCell.id, for: indexPath) as? BigImageCollectionViewCell
+                cell?.configure(title: movieData.title, overview: movieData.overview, review: "⭐️ \(movieData.vote)", url: movieData.posterURL)
                 return cell
-            case .bigImage(let contentData):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
-                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
-                return cell
-            case .list(let contentData):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
-                cell?.config(imageUrl: contentData.posterURL , titleLabel: contentData.title , reviewLabel: "\(contentData.vote)", descLabel: contentData.overview )
+            case .list(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.id, for: indexPath) as? ListCollectionViewCell
+                cell?.configure(title: movieData.title, releaseDate: movieData.releaseDate, url: movieData.posterURL)
                 return cell
             }
         })

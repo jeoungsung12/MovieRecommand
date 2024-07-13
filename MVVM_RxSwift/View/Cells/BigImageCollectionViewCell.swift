@@ -16,6 +16,7 @@ final class BigImageCollectionViewCell : UICollectionViewCell {
     private let stackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 10
         return stackView
     }()
     let titleLabel : UILabel = {
