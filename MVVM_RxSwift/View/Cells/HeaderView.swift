@@ -29,7 +29,7 @@ extension HeaderView {
     private func setLayout() {
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+            make.leading.trailing.top.equalToSuperview().inset(10)
         }
     }
     public func configure(title : String) {
