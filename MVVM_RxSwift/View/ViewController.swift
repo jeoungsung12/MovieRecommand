@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     lazy var collectionView : UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout())
         view.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: NormalCollectionViewCell.id)
+        view.register(BigImageCollectionViewCell.self, forCellWithReuseIdentifier: BigImageCollectionViewCell.id)
+        view.register(ListCollectionViewCell.self, forCellWithReuseIdentifier: ListCollectionViewCell.id)
         return view
     }()
     private var dataSource : UICollectionViewDiffableDataSource<Section,Item>?
