@@ -106,7 +106,12 @@ extension ViewController {
             }
             snapshot.appendSections([horizontalSection])
             snapshot.appendItems(normalList, toSection: horizontalSection)
-            
+            let verticalSection = Section.vertical("Upcoming Movies")
+            let itemList = moList.upcoming.results.map { movie in
+                return Item.list(movie)
+            }
+            snapshot.appendSections([verticalSection])
+            snapshot.appendItems(itemList, toSection: verticalSection)
             self.dataSource?.apply(snapshot)
         }
         .disposed(by: disposeBag)
@@ -137,10 +142,30 @@ extension ViewController {
                 return self?.createBannerSection()
             case .horizotional:
                 return self?.createHorizontalSection()
+            case .vertical:
+                return self?.createVerticalSection()
             default:
                 return self?.createDoubleSection()
             }
         }, configuration: config)
+    }
+    //MARK: - Vertical Section
+    private func createVerticalSection() -> NSCollectionLayoutSection {
+        //item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
+        //group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(320))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        //header
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        section.boundarySupplementaryItems = [header]
+        return section
     }
     //MARK: - Horizontal Section
     private func createHorizontalSection() -> NSCollectionLayoutSection {
@@ -209,6 +234,8 @@ extension ViewController {
             
             switch section {
             case .horizotional(let title):
+                (header as? HeaderView)?.configure(title: title)
+            case .vertical(let title):
                 (header as? HeaderView)?.configure(title: title)
             default:
                 print("Default")
