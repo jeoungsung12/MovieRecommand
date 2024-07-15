@@ -132,6 +132,16 @@ extension ViewController {
             self.moTrigger.onNext(())
         }
         .disposed(by: disposeBag)
+        collectionView.rx.itemSelected.bind(onNext: { [weak self] indexPath in
+            guard let self = self else { return }
+            let item = self.dataSource?.itemIdentifier(for: indexPath)
+            switch item {
+            case .normal(let content):
+                self.navigationController?.pushViewController(ReviewViewContoller(tvData: content), animated: true)
+            default:
+                print("default")
+            }
+        }).disposed(by: disposeBag)
     }
 }
 //MARK: - UI CollectionView
