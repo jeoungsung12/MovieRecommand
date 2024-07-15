@@ -92,27 +92,32 @@ extension ViewController {
         }
         .disposed(by: disposeBag)
         output.moList.bind { moList in
-            var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
-            let bigImageList = moList.nowPlaying.results.map { movie in
-                return Item.bigImage(movie)
+            switch moList {
+            case .success(let moData):
+                var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
+                let bigImageList = moData.nowPlaying.results.map { movie in
+                    return Item.bigImage(movie)
+                }
+                let bannerSection = Section.banner
+                snapshot.appendSections([bannerSection])
+                snapshot.appendItems(bigImageList, toSection: bannerSection)
+
+                let horizontalSection = Section.horizotional("Popular Movies")
+                let normalList = moData.popular.results.map { movie in
+                    return Item.normal(Content(movie: movie))
+                }
+                snapshot.appendSections([horizontalSection])
+                snapshot.appendItems(normalList, toSection: horizontalSection)
+                let verticalSection = Section.vertical("Upcoming Movies")
+                let itemList = moData.upcoming.results.map { movie in
+                    return Item.list(movie)
+                }
+                snapshot.appendSections([verticalSection])
+                snapshot.appendItems(itemList, toSection: verticalSection)
+                self.dataSource?.apply(snapshot)
+            case .failure(let error):
+                print(error)
             }
-            let bannerSection = Section.banner
-            snapshot.appendSections([bannerSection])
-            snapshot.appendItems(bigImageList, toSection: bannerSection)
-            
-            let horizontalSection = Section.horizotional("Popular Movies")
-            let normalList = moList.popular.results.map { movie in
-                return Item.normal(Content(movie: movie))
-            }
-            snapshot.appendSections([horizontalSection])
-            snapshot.appendItems(normalList, toSection: horizontalSection)
-            let verticalSection = Section.vertical("Upcoming Movies")
-            let itemList = moList.upcoming.results.map { movie in
-                return Item.list(movie)
-            }
-            snapshot.appendSections([verticalSection])
-            snapshot.appendItems(itemList, toSection: verticalSection)
-            self.dataSource?.apply(snapshot)
         }
         .disposed(by: disposeBag)
     }

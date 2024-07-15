@@ -144,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				E461BD722BDB8BE3008CFD7D /* Info.plist */,
-				E4EC744A2BE8B27900D1C9FD /* View */,
 				E4EC74452BE4F73500D1C9FD /* App */,
+				E4EC744A2BE8B27900D1C9FD /* View */,
 				E48650DA2BDE6204001A7CC8 /* Network */,
 			);
 			path = MVVM_RxSwift;

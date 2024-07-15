@@ -24,7 +24,7 @@ class ViewModel {
     }
     struct Output {
         let tvList: Observable<[TV]>
-        let moList : Observable<MovieResult>
+        let moList : Observable<Result<MovieResult,Error>>
     }
     func transform(input: Input) -> Output {
         //trigger -> 네트워크 -> Observable<T> -> VC 전달 -> VC에서 구독
@@ -33,9 +33,12 @@ class ViewModel {
             return self.tvNetwork.getTopRatedList().map { $0.results ?? [] }
         }
         //Observable 1,2,3 합쳐서 하나의 Observable로 바꾸고 싶다면? Observable.combineLatest
-        let movieResult = input.moTrigger.flatMapLatest { [unowned self] _ -> Observable<MovieResult> in
-            return Observable.combineLatest(self.movieNetwork.getUpcomingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) { upcoming, popular, nowPlaying -> MovieResult in
-                return MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying)
+        let movieResult = input.moTrigger.flatMapLatest { [unowned self] _ -> Observable<Result<MovieResult,Error>> in
+            return Observable.combineLatest(self.movieNetwork.getUpcomingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) { upcoming, popular, nowPlaying -> Result<MovieResult,Error> in
+                    .success(MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying))
+                    
+            }.catch { error in
+                return Observable.just(.failure(error))
             }
         }
         return Output(tvList: tvList, moList: movieResult)
