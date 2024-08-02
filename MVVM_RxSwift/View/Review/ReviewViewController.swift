@@ -33,6 +33,7 @@ final class ReviewViewContoller : UIViewController {
         view.textAlignment = .left
         view.backgroundColor = .clear
         view.isUserInteractionEnabled = false
+        view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return view
     }()
     override func viewDidLoad() {
