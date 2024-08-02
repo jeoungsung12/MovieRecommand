@@ -22,23 +22,49 @@ final class ReviewViewContoller : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK: - UI Components
-    
+    private let image : UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    private let titleView : UITextView = {
+        let view = UITextView()
+        view.textAlignment = .left
+        view.backgroundColor = .clear
+        view.isUserInteractionEnabled = false
+        return view
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        setBinding()
+        setBindView()
         setNavigatioin()
     }
 }
 //MARK: - UI Navigation
 private extension ReviewViewContoller {
     private func setNavigatioin() {
-        
+        self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.tintColor = .black
     }
 }
 //MARK: - UI Layout
 private extension ReviewViewContoller {
     private func setLayout() {
+        self.view.addSubview(image)
+        self.view.addSubview(titleView)
         
+        image.snp.makeConstraints { make in
+            make.height.equalToSuperview().dividedBy(3)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        titleView.snp.makeConstraints { make in
+            make.top.equalTo(image.snp.bottom).offset(20)
+            make.leading.trailing.bottom.equalToSuperview().inset(20)
+        }
     }
 }
 //MARK: - Binding
@@ -46,8 +72,11 @@ private extension ReviewViewContoller {
     private func setBinding() {
         
     }
-    private func BindView() {
-        
+    private func setBindView() {
+        if let url = URL(string: "https://image.tmdb.org/t/p/original\(tvData.posterURL)") {
+            self.image.kf.setImage(with: url)
+            self.titleView.text = "\(self.tvData.title)\n\n\(self.tvData.overview)"
+        }
     }
 }
 //MARK: - Action
